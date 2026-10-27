@@ -1,6 +1,6 @@
 # InsightLedger — invoice dashboard with an AI digest
 
-**Live demo: https://insightledger.console.kremoa.com** (demo data, JST reporting)
+**Live demo: https://portfolio.kremoa.com** (demo data, JST reporting)
 
 A production-shaped Next.js MVP demo: SQLite-backed invoicing for a freelance
 web studio, with JST-aware reporting and an AI cash-flow digest that runs with
