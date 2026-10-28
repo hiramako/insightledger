@@ -26,17 +26,18 @@ function RevenueChart({ months }: { months: [string, number][] }) {
       <div className="text-xs font-medium uppercase tracking-wide text-slate-500">
         Invoiced revenue (JST months)
       </div>
-      <svg viewBox={`0 0 ${w} ${h + 28}`} className="mt-3 w-full" role="img" aria-label="Monthly invoiced revenue">
+      <svg viewBox={`0 0 ${w} ${h + 48}`} className="mt-3 w-full" role="img" aria-label="Monthly invoiced revenue">
         {months.map(([m, cents], i) => {
           const bh = Math.max(4, Math.round((cents / max) * h));
           const x = gap + i * (barW + gap);
+          const top = 20 + h - bh; // headroom so the tallest bar's label baseline (+glyph height) stays inside the viewBox
           return (
             <g key={m}>
-              <rect x={x} y={h - bh} width={barW} height={bh} rx={4} className="fill-indigo-600" />
-              <text x={x + barW / 2} y={h + 16} textAnchor="middle" className="fill-slate-500 text-[11px]">
+              <rect x={x} y={top} width={barW} height={bh} rx={4} className="fill-indigo-600" />
+              <text x={x + barW / 2} y={20 + h + 16} textAnchor="middle" className="fill-slate-500 text-[11px]">
                 {m}
               </text>
-              <text x={x + barW / 2} y={h - bh - 6} textAnchor="middle" className="fill-slate-600 text-[10px]">
+              <text x={x + barW / 2} y={top - 6} textAnchor="middle" className="fill-slate-600 text-[10px]">
                 {formatCents(cents)}
               </text>
             </g>
